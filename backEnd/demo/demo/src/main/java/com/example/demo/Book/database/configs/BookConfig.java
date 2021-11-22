@@ -6,8 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
-
+import java.util.Arrays;
+import java.util.Collections;
 
 @Configuration
 public class BookConfig {
@@ -28,7 +28,7 @@ public class BookConfig {
                     12.50
             );
 
-            bookRepository.saveAll(List.addAll(book1, book2));
+            bookRepository.saveAll(Collections.unmodifiableList(Arrays.asList(book1, book2)));
         };
     }
 }
