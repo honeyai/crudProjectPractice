@@ -1,0 +1,7 @@
+.navbar_Container {
+  width: 100vw;
+  height: 5rm;
+  background-color: var(--navbarBackground);
+  display: flex;
+  flex-flow: row, space-between;
+}

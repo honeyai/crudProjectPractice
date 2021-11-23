@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 import './App.css';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
   
   return (
     <div className="App">
+      <Navbar/>
       {client ?
         client.map((book, key) => {
           return <div key={key}> 
