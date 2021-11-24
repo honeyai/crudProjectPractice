@@ -5,21 +5,24 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import "./navbar.css";
 
 const Navbar = () => {
-
   const [isOpen, setOpen] = useState(false);
-  const handleOpen = () => setOpen(!isOpen);
+  const handleOpen = () => {
+    setOpen(!isOpen);
+  };
+  
   return (
     <div className="navbar_Container">
-      {isOpen === false ? (
+      {!isOpen ? (
         <div className="navbar_MenuHamburger" onClick={handleOpen}>
-          <div className="navbar_HamburgerPart" id="1"></div>
-          <div className="navbar_HamburgerPart" id="2"></div>
-          <div className="navbar_HamburgerPart" id="3"></div>
+          <div className="navbar_HamburgerPart" id="1"/>
+          <div className="navbar_HamburgerPart" id="2"/>
+          <div className="navbar_HamburgerPart" id="3"/>
         </div>
       ) : (
-        <div className="navbar_MenuHamburger">
-          <div className="navbar_XClose" id="1"></div>
-          <div className="navbar_XClose" id="2"></div>
+        <div className="navbar_MenuHamburger" onClick={handleOpen}>
+          <div className={isOpen ? "navbar_HamburgerPart open" : "navbar_Hamburger"}/>
+          <div className={isOpen ? "navbar_HamburgerPart open" : "navbar_Hamburger"}/>
+          <div className={isOpen ? "navbar_HamburgerPart open" : "navbar_Hamburger"}/>
         </div>
       )}
       <SearchIcon />

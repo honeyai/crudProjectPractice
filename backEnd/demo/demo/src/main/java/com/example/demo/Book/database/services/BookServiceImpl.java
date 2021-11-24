@@ -17,11 +17,11 @@ public class BookServiceImpl implements BookService {
     public Iterable<Book> listBooks() {
         return bookRepository.findAll();
     }
-//
-//    @Override
-//    public Book createStudent(Book newBook) {
-//        return bookRepository.save(newBook);
-//    }
+
+    @Override
+    public Book createBook(Book newBook) {
+        return bookRepository.save(newBook);
+    }
 
     @Override
     public HttpStatus deleteBook(Long id) {

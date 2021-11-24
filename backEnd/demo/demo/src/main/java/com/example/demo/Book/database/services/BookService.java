@@ -4,6 +4,6 @@ import org.springframework.http.HttpStatus;
 
 public interface BookService {
     Iterable<Book> listBooks();
-//    Book createStudent(Book newBook);
+    Book createBook(Book newBook);
     HttpStatus deleteBook(Long id);
 }

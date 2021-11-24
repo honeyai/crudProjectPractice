@@ -23,15 +23,17 @@ public class Book {
     @Column
     private String title, author, genre;
     @Column
-    private Double price;
+    private Double price, rating;
+
     public Book() {
     }
 
-    public Book(String title, String author, String genre, Double price) {
+    public Book(String title, String author, String genre, Double price, Double rating) {
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.price = price;
+        this.rating = rating;
     }
 
     public Long getId() {
@@ -74,14 +76,19 @@ public class Book {
         this.price = price;
     }
 
+    public Double getRating() { return rating; }
+
+    public void setRating(Double rating)  { this.rating = rating; }
+
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", genre=" + genre +
-                ", price=" + price +
+                ", title = " + title + '\'' +
+                ", author = " + author + '\'' +
+                ", genre = " + genre + '\'' +
+                ", price = " + price + '\'' +
+                ", rating = " + rating + '\'' +
                 '}';
     }
 }

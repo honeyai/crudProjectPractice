@@ -23,8 +23,8 @@ public class BookController {
         return bookService.listBooks();
     }
 
-//    @PostMapping("/newStudent")
-//    public Book createStudent(@RequestBody Book newBook) {
-//        return bookService.createStudent(newBook);
-//    }
+    @PostMapping("/add")
+    public Book createBook(@RequestBody Book newBook) {
+        return bookService.createBook(newBook);
+    }
 }

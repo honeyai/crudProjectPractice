@@ -19,16 +19,24 @@ public class BookConfig {
                     "The Giving Tree",
                     "Shell Silverstein",
                     "Fiction",
-                    12.50
+                    12.50,
+                    5.0
             );
             Book book2 = new Book(
-                    "The Giving Tree",
-                    "Shell Silverstein",
+                    "Moby Dick",
+                    "Herman Melville",
                     "Fiction",
-                    12.50
+                    15.50,
+                    4.0
             );
-
-            bookRepository.saveAll(Collections.unmodifiableList(Arrays.asList(book1, book2)));
+            Book book3 = new Book(
+                    "Lord of the Flies",
+                    "William Golding",
+                    "Fiction",
+                    14.75,
+                    4.5
+            );
+            bookRepository.saveAll(Collections.unmodifiableList(Arrays.asList(book1, book2, book3)));
         };
     }
 }
