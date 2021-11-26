@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import Menu from "../Menu/Menu";
 import "./navbar.css";
 
 const Navbar = () => {
@@ -23,6 +24,7 @@ const Navbar = () => {
           <div className={isOpen ? "navbar_HamburgerPart open" : "navbar_Hamburger"}/>
           <div className={isOpen ? "navbar_HamburgerPart open" : "navbar_Hamburger"}/>
           <div className={isOpen ? "navbar_HamburgerPart open" : "navbar_Hamburger"}/>
+          <Menu className={isOpen? "menu_show" : "menu_close"}/>
         </div>
       )}
       <SearchIcon />
