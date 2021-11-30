@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import "./menu.css";
 import { Typography } from '@mui/material';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Accordion from '../Accordion/Accordion';
 
-const Menu = () => {
+const Menu = ({ isOpen }) => {
 
   const list = [
     {
@@ -18,7 +19,7 @@ const Menu = () => {
         {
           href: "",
           label: "Order Status",
-        }, 
+        },
         {
           href: "",
           label: "Payments"
@@ -33,7 +34,7 @@ const Menu = () => {
           href: "",
           label: "Bestsellers",
           icon: "",
-        }, 
+        },
         {
           href: "",
           label: "Browse",
@@ -65,39 +66,37 @@ const Menu = () => {
     },
   ]
 
-  const [isOpen, setOpen] = useState(false);
-
   return (
-    <div className="menu_Container">
+    <div className={isOpen ? "menu_Container open" : "menu_Container"}>
       <div className="menu_List">
         {
           list.map((l, key) => {
-            return (
-              <Typography key={key} href={l.href}>
-                {l.subMenu ? l.label : 
-                  <div className="menu_listItemWithSubMenu">
-                    <div className="menu_listItem">
-                      <Typography>{l.label}</Typography>
-                      <ArrowForwardIosIcon  onClick={setOpen(!isOpen)}/>
-                      {
-                        isOpen ? 
-                          l.subMenu.map((sl, key) => 
-                            <div className="menu_submenuContainer">
-                              <Typography key={key}>{sl.label}</Typography>
-                              <ArrowForwardIosIcon  onClick={setOpen(!isOpen)}/>
-                                {
-                                  isOpen ? 
-                                  sl.map((l, key) => <Typography key={key}>{l.label}</Typography>) :
-                                  <div/>
-                                }
-                            </div>
-                          )  :
-                          l.subMenu.map((sl) =>(<Typography>{sl.label}</Typography> ))                      
-                      }
-                      </div>
-                  </div>}
-              </Typography>
-            )
+            console.log("l", l)
+            if (l.subMenu && l.icon) {
+              return (
+                  <Accordion href={l.href} key={key} className="menu_ListItem" icon={l.icon} title={l.label} content={
+                    l.subMenu.map((sl, key) =>
+                    <div className="menu_ListItem" href={sl.href} key={key}>
+                      <Typography>{sl.label}</Typography>
+                    </div>
+                    )} />
+              )
+            } else if (l.subMenu && !l.icon) {
+              return (
+                <Accordion href={l.href} key={key} className="menu_ListItem" title={l.label} content={
+                  l.subMenu.map((sl, key) =>
+                  <div className="menu_ListItem" href={sl.href} key={key}>
+                    <Typography>{sl.label}</Typography>
+                  </div>
+                  )} />
+                  )
+            } else {
+              return (
+                <div key={key} href={l.href}>
+                  <div>{l.label}</div>
+                </div>
+              )
+            }
           })
         }
       </div>
