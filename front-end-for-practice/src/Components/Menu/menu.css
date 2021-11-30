@@ -1,12 +1,13 @@
 .menu_Container {
   display: flex;
   flex-direction: column;
-  border: red solid;
+  background-color: rgb(255, 255, 255);
   position: fixed;
-  height: 100%;
-  left: -250px;
+  height: 92.5vh;
+  width: 100%;
+  left: -500px;
   transition: all 250ms ease-in-out;
-  
+  justify-content: space-between;
 }
 
 .menu_Container.open {
@@ -19,6 +20,20 @@
 }
 
 .menu_ListItem {
-  /* display: flex; */
-  border: blue solid;
+  padding: 1rem 0rem 1rem 1rem;
+  border: var(--gray) solid 1px;
+}
+
+.menu_SubListItem {
+  padding: 1rem 0rem 1rem 2rem;
+  border: var(--gray) solid 1px;
+}
+
+.menu_quickLinks {
+  border: yellow solid;
+  height: max-content;
+}
+.menu_QuickListItem {
+  padding: 1rem;
+  cursor: pointer;
 }

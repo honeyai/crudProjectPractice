@@ -1,0 +1,38 @@
+.accordion_Container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.accordion_Label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0rem;
+  border-bottom: var(--gray) solid 1px;
+
+}
+
+.accordion_IconAndLabel {
+  display: flex;
+
+}
+
+.accordion_Icon {
+ padding-left:1rem;
+}
+
+.accordion_Title {
+  padding-left: 1rem;
+}
+
+.account {
+  background-color: var(--green);
+  color: white;
+}
+
+.books {
+  background-color: var(--gray);
+}

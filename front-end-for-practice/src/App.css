@@ -1,3 +1,6 @@
 :root {
-  --navbarBackground: rgb(66, 114, 86);
+  --navbarBackground: var(--green);
+  --green: rgb(35, 65, 35);
+  --gray: rgb(204, 204, 204);
 }
+

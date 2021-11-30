@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import "./menu.css";
 import { Typography } from '@mui/material';
@@ -74,9 +74,9 @@ const Menu = ({ isOpen }) => {
             console.log("l", l)
             if (l.subMenu && l.icon) {
               return (
-                  <Accordion href={l.href} key={key} className="menu_ListItem" icon={l.icon} title={l.label} content={
+                  <Accordion href={l.href} key={key} icon={l.icon} title={l.label} content={
                     l.subMenu.map((sl, key) =>
-                    <div className="menu_ListItem" href={sl.href} key={key}>
+                    <div className="menu_SubListItem" href={sl.href} key={key}>
                       <Typography>{sl.label}</Typography>
                     </div>
                     )} />
@@ -85,7 +85,7 @@ const Menu = ({ isOpen }) => {
               return (
                 <Accordion href={l.href} key={key} className="menu_ListItem" title={l.label} content={
                   l.subMenu.map((sl, key) =>
-                  <div className="menu_ListItem" href={sl.href} key={key}>
+                  <div className="menu_SubListItem" href={sl.href} key={key}>
                     <Typography>{sl.label}</Typography>
                   </div>
                   )} />
@@ -93,7 +93,7 @@ const Menu = ({ isOpen }) => {
             } else {
               return (
                 <div key={key} href={l.href}>
-                  <div>{l.label}</div>
+                  <div className="menu_ListItem">{l.label}</div>
                 </div>
               )
             }
@@ -101,7 +101,9 @@ const Menu = ({ isOpen }) => {
         }
       </div>
       <div className="menu_quickLinks">
-
+        {
+          quickList.map((ql, key) => <div className="menu_QuickListItem"><Typography key={key} href={ql.href}>{ql.label}</Typography></div>)
+        }
       </div>
     </div>
   );
