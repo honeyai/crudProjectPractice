@@ -71,29 +71,28 @@ const Menu = ({ isOpen }) => {
       <div className="menu_List">
         {
           list.map((l, key) => {
-            console.log("l", l)
             if (l.subMenu && l.icon) {
               return (
-                  <Accordion href={l.href} key={key} icon={l.icon} title={l.label} content={
-                    l.subMenu.map((sl, key) =>
+                <Accordion href={l.href} key={key} icon={l.icon} title={l.label} content={
+                  l.subMenu.map((sl, key) =>
                     <div className="menu_SubListItem" href={sl.href} key={key}>
                       <Typography>{sl.label}</Typography>
                     </div>
-                    )} />
+                  )} />
               )
             } else if (l.subMenu && !l.icon) {
               return (
                 <Accordion href={l.href} key={key} className="menu_ListItem" title={l.label} content={
                   l.subMenu.map((sl, key) =>
-                  <div className="menu_SubListItem" href={sl.href} key={key}>
-                    <Typography>{sl.label}</Typography>
-                  </div>
+                    <div className="menu_SubListItem" href={sl.href} key={key}>
+                      <Typography>{sl.label}</Typography>
+                    </div>
                   )} />
-                  )
+              )
             } else {
               return (
                 <div key={key} href={l.href}>
-                  <div className="menu_ListItem">{l.label}</div>
+                  <div key={key} className="menu_ListItem">{l.label}</div>
                 </div>
               )
             }

@@ -4,3 +4,7 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
+.carousel_Image {
+  width:150px
+}
