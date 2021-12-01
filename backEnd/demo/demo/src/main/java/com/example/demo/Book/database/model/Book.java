@@ -21,19 +21,20 @@ public class Book {
     private Long id;
 
     @Column
-    private String title, author, genre;
+    private String title, author, genre, image;
     @Column
     private Double price, rating;
 
     public Book() {
     }
 
-    public Book(String title, String author, String genre, Double price, Double rating) {
+    public Book(String title, String author, String genre, Double price, Double rating, String image) {
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.price = price;
         this.rating = rating;
+        this.image = image;
     }
 
     public Long getId() {
@@ -79,6 +80,14 @@ public class Book {
     public Double getRating() { return rating; }
 
     public void setRating(Double rating)  { this.rating = rating; }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     @Override
     public String toString() {

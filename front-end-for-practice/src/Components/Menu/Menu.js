@@ -1,8 +1,12 @@
 import React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 import "./menu.css";
 import { Typography } from '@mui/material';
 import Accordion from '../Accordion/Accordion';
+import { Link } from 'react-router-dom';
+import StarsIcon from '@mui/icons-material/Stars';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 const Menu = ({ isOpen }) => {
 
@@ -32,6 +36,10 @@ const Menu = ({ isOpen }) => {
       subMenu: [
         {
           href: "",
+          label: "See all books",
+        },
+        {
+          href: "",
           label: "Bestsellers",
           icon: "",
         },
@@ -54,15 +62,18 @@ const Menu = ({ isOpen }) => {
   const quickList = [
     {
       href: "",
-      label: "Stores & Events"
+      label: "Stores & Events",
+      icon: <LocationOnIcon />,
     },
     {
       href: "",
-      label: "Bestsellers"
+      label: "Bestsellers",
+      icon: <StarsIcon />,
     },
     {
       href: "",
-      label: "Wishlist"
+      label: "Wishlist",
+      icon: <BookmarkIcon />,
     },
   ]
 
@@ -75,8 +86,8 @@ const Menu = ({ isOpen }) => {
               return (
                 <Accordion href={l.href} key={key} icon={l.icon} title={l.label} content={
                   l.subMenu.map((sl, key) =>
-                    <div className="menu_SubListItem" href={sl.href} key={key}>
-                      <Typography>{sl.label}</Typography>
+                    <div className="menu_SubListItem" key={key}>
+                      <Link to={sl.href}><Typography key={key}>{sl.label}</Typography></Link>
                     </div>
                   )} />
               )
@@ -84,15 +95,15 @@ const Menu = ({ isOpen }) => {
               return (
                 <Accordion href={l.href} key={key} className="menu_ListItem" title={l.label} content={
                   l.subMenu.map((sl, key) =>
-                    <div className="menu_SubListItem" href={sl.href} key={key}>
-                      <Typography>{sl.label}</Typography>
+                    <div className="menu_SubListItem" key={key}>
+                      <Link to={sl.href}><Typography key={key}>{sl.label}</Typography></Link>
                     </div>
                   )} />
               )
             } else {
               return (
-                <div key={key} href={l.href}>
-                  <div key={key} className="menu_ListItem">{l.label}</div>
+                <div key={key}>
+                  <Link to={l.href}><Typography key={key} className="menu_ListItem">{l.label}</Typography></Link>
                 </div>
               )
             }
@@ -101,7 +112,14 @@ const Menu = ({ isOpen }) => {
       </div>
       <div className="menu_quickLinks">
         {
-          quickList.map((ql, key) => <div className="menu_QuickListItem"><Typography key={key} href={ql.href}>{ql.label}</Typography></div>)
+          quickList.map((ql, key) => <Link to={ql.href} className="menu_QuickListItem" key={key}><div className="menu_IconAndLabel">
+            <div className="menu_Icon">
+              {ql.icon}
+            </div>
+            <div className="menu_Title">
+              <Typography>{ql.label}</Typography>
+            </div>
+          </div></Link>)
         }
       </div>
     </div>

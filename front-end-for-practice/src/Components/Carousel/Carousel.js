@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { Typography } from '@mui/material';
 import "./carousel.css";
 
-const Carousel = ({ books, allImages }) => {
+const Carousel = ({ books, title }) => {
   let [index, setIndex] = useState(0);
-
+  console.log("books",books)
   const importImages = (r) => r.keys().map(r);
   let images = importImages(require.context(`../Assets/Images`, false, /\.(png|jpe?g|svg)$/i));
-  
-  console.log("images", images)
 
   const nextImage = () => {
     if (books.length - 1 <= index) {
@@ -29,8 +28,6 @@ const Carousel = ({ books, allImages }) => {
 
   let file;
   const getRightImage = (imageName) => {
-    console.log(imageName);
-    images.map((i) => console.log(i))
     file = images.find(
       (i) =>
         i.split("/")
@@ -38,20 +35,23 @@ const Carousel = ({ books, allImages }) => {
           .replace(/\.[^/.]+$/, "")
           .replace(/\.[^/.]+$/, "") === imageName
     );
-    ;console.log(file);
+    console.log(imageName)
     return file ? file : null;
   };
 
   return (
     <div className="carousel_Container">
-      <ArrowBackIosNewIcon className="" onClick={prevImage} />
-      <div className="carousel_Window">
-        {books ?
-          <img className="carousel_Image" src={getRightImage(books[index].image)}/>
-          : "loading"
-        }
+      <div><Typography>{title}</Typography></div>
+      <div className="carousel_Unit">
+        <ArrowBackIosNewIcon className="carousel_arrow" onClick={prevImage} />
+        <div className="carousel_Window">
+          {books ?
+            <img className="carousel_Image" src={getRightImage(books[index].image)} />
+            : "loading"
+          }
+        </div>
+        <ArrowForwardIosIcon className="carousel_arrow" onClick={nextImage} />
       </div>
-      <ArrowForwardIosIcon className="" onClick={nextImage} />
     </div>
   );
 };

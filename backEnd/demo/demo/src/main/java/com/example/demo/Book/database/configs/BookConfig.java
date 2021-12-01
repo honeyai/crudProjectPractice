@@ -20,21 +20,24 @@ public class BookConfig {
                     "Shell Silverstein",
                     "Fiction",
                     12.50,
-                    5.0
+                    5.0,
+                    "TheGivingTree"
             );
             Book book2 = new Book(
                     "Moby Dick",
                     "Herman Melville",
                     "Fiction",
                     15.50,
-                    4.0
+                    4.0,
+                    "MobyDick"
             );
             Book book3 = new Book(
                     "Lord of the Flies",
                     "William Golding",
                     "Fiction",
                     14.75,
-                    4.5
+                    4.5,
+                    "LordoftheFlies"
             );
             bookRepository.saveAll(Collections.unmodifiableList(Arrays.asList(book1, book2, book3)));
         };

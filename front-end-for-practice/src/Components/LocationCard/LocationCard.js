@@ -4,7 +4,6 @@ import "./locationCard.css";
 
 const LocationCard = ({ location, address, zip, hours }) => {
 
-  console.log(location)
   return (
     <div className="locationCard_Container">
       <div className="locationCard_Card">

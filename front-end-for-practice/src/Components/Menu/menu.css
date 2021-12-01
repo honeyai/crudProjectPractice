@@ -33,7 +33,20 @@
   border: yellow solid;
   height: max-content;
 }
+
 .menu_QuickListItem {
   padding: 1rem;
   cursor: pointer;
 }
+
+.menu_IconAndLabel {
+  display: flex;
+}
+
+.menu_Icon {
+  padding-left:1rem;
+ }
+ 
+ .menu_Title {
+   padding-left: 1rem;
+ }

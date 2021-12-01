@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+// import { Typography } from '@mui/material';
 import React, {useEffect, useState} from 'react';
 import Carousel from '../Carousel/Carousel';
 import "./home.css"
@@ -6,22 +6,14 @@ const Home = () => {
 
   const [bestSellers, setBestSellers] = useState();
   const [bestNonFic, setBestNonFic] = useState();
-  const [allImages, setAllImages] = useState();
-
-  let toReturn = [];
 
   useEffect(() => {
     const getBooks = async () => {
       try {
         const response = await fetch('http://localhost:8080/b/list');
         const body = await response.json();
-        console.log("body", body)
-        setBestSellers(body.filter((b) => b.rating > 3 ));
+        setBestSellers(body.filter((b) => b.rating > 4 ));
         setBestNonFic(body.filter((b) => b.rating > 3 && b.genre === "non-fiction"));
-        setAllImages(body.map((i) => {
-          toReturn.push(i.image);
-          return toReturn;
-        }));
       } catch (error) {
         console.error(error.message);
       }
@@ -32,12 +24,10 @@ const Home = () => {
   return (
     <div className="home_Container">
       <div className="home_BestSellersContainer">
-        <Typography>Best Sellers</Typography>
-        <Carousel books={bestSellers} images={allImages}/>
+        <Carousel title="Best Sellers" books={bestSellers} />
       </div>
       <div className="home_BestSellersContainer">
-        <Typography>Best Non-Fiction</Typography>
-        <Carousel books={bestNonFic}/>
+        <Carousel title="Best Selling Non-fiction" books={bestNonFic}/>
       </div>
     </div>
   );

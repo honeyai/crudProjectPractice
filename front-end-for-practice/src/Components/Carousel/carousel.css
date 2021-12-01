@@ -1,10 +1,24 @@
 .carousel_Container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-direction: column;
+  margin: 2rem;
   align-items: center;
+  width: 100%;
+}
+
+.carousel_Unit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem;
+  width: 100%;
+}
+
+.carousel_arrow {
+  cursor: pointer;
 }
 
 .carousel_Image {
-  width:150px
+  width: 200px
 }
