@@ -10,13 +10,13 @@ public class Book {
     @Id
     @Column
     @SequenceGenerator(
-            name= "student_sequence",
-            sequenceName = "student_sequence",
+            name= "book_sequence",
+            sequenceName = "book_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "student_sequence"
+            generator = "book_sequence"
            )
     private Long id;
 
