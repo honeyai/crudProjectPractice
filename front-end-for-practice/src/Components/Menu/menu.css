@@ -3,7 +3,7 @@
   flex-direction: column;
   background-color: rgb(255, 255, 255);
   position: fixed;
-  height: 92.5vh;
+  height: 100%;
   width: 100%;
   left: -500px;
   transition: all 250ms ease-in-out;

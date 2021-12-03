@@ -1,18 +1,28 @@
 .locationCard_Image {
-  background: no-repeat url("https://images.pexels.com/photos/626986/pexels-photo-626986.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 100%;
-  height: 10rem;
-  width: 10rem;
+  height: 15rem;
+  width: 15rem;
+  border: var(--salmon) solid 5px;
+  margin: 3rem;
 }
 .locationCard_WhereAndWhen {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  color:tomato;
 }
-
 .locationCard_Card {
-  border: red solid;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 1rem;
+}
+
+.locationCard_divider {
+  border-bottom: var(--salmon) solid 2px ;
+  border-bottom-width: 3px;
+  width: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  align-self: center;
 }

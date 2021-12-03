@@ -41,37 +41,25 @@ const Footer = () => {
 
   const siteDirectory = [
     {
-      label: "example",
+      label: "Find a Store",
       href: "#"
     },
     {
-      label: "example",
+      label: "Sign up/Sign In",
       href: "#"
     },
     {
-      label: "example",
-      href: "#"
-    },
-    {
-      label: "example",
-      href: "#"
-    },
-    {
-      label: "example",
-      href: "#"
-    },
-    {
-      label: "example",
-      href: "#"
-    },
-    {
-      label: "example",
+      label: "About Us",
       href: "#"
     },
   ]
 
   return (
     <div className="footer_Container">
+      <div className="footer_hoursLocations">
+         Store Hours and Locations 
+      </div>
+      <span className="footer_divider"/>
       <div className="footer_Locations">
         {
           locations.map((l, key) =>
@@ -79,9 +67,10 @@ const Footer = () => {
           )
         }
       </div>
+      <div className="footer_directoryAndSocials">
       <div className="footer_SiteDirectory">
         {
-          siteDirectory.map((s, key) => <Typography key={key}>{s.label}</Typography>)
+          siteDirectory.map((s, key) => <Typography style={{"padding": "2rem", }} key={key}>{s.label}</Typography>)
         }
       </div>
       <div className="footer_Socials">
@@ -91,7 +80,7 @@ const Footer = () => {
           rel="noopener noreferrer"
         >
           <div className="twitter social-bg">
-            <FontAwesomeIcon icon={faTwitter} size="lg" />
+            <FontAwesomeIcon icon={faTwitter} size="2x" />
           </div>
         </a>
         <a
@@ -100,7 +89,7 @@ const Footer = () => {
           rel="noopener noreferrer"
         >
           <div className="linkedin social-bg">
-            <FontAwesomeIcon icon={faLinkedinIn} size="lg" />
+            <FontAwesomeIcon icon={faLinkedinIn} size="2x" />
           </div>
         </a>
         <a
@@ -109,9 +98,10 @@ const Footer = () => {
           rel="noopener noreferrer"
         >
           <div className="facebook social-bg">
-            <FontAwesomeIcon icon={faFacebookF} size="lg" />
+            <FontAwesomeIcon icon={faFacebookF} size="2x" />
           </div>
         </a>
+      </div>
       </div>
     </div>
   );

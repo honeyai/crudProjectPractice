@@ -1,7 +1,10 @@
 :root {
   --navbarBackground: var(--green);
+  --footer: var(--green);
+
   --green: rgb(35, 65, 35);
   --gray: rgb(204, 204, 204);
+  --salmon: rgb(243, 143, 160);
 }
 
 

@@ -6,7 +6,7 @@ import "./carousel.css";
 
 const Carousel = ({ books, title }) => {
   let [index, setIndex] = useState(0);
-  console.log("books",books)
+  console.log("books", books)
   const importImages = (r) => r.keys().map(r);
   let images = importImages(require.context(`../Assets/Images`, false, /\.(png|jpe?g|svg)$/i));
 
@@ -43,14 +43,18 @@ const Carousel = ({ books, title }) => {
     <div className="carousel_Container">
       <div><Typography>{title}</Typography></div>
       <div className="carousel_Unit">
-        <ArrowBackIosNewIcon className="carousel_arrow" onClick={prevImage} />
+        <div className="carousel_Icon" onClick={prevImage}>
+          <ArrowBackIosNewIcon className="carousel_arrow" />
+        </div>
         <div className="carousel_Window">
           {books ?
             <img className="carousel_Image" src={getRightImage(books[index].image)} />
             : "loading"
           }
         </div>
-        <ArrowForwardIosIcon className="carousel_arrow" onClick={nextImage} />
+        <div className="carousel_Icon" onClick={nextImage}>
+          <ArrowForwardIosIcon className="carousel_arrow" />
+        </div>
       </div>
     </div>
   );
