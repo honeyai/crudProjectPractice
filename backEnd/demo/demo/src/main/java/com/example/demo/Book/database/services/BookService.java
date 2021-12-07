@@ -6,4 +6,7 @@ public interface BookService {
     Iterable<Book> listBooks();
     Book createBook(Book newBook);
     HttpStatus deleteBook(Long id);
+    Iterable<Book> listBookByGenre(String genre);
+    Iterable<Book> listBookGtRating(Double rating);
+
 }

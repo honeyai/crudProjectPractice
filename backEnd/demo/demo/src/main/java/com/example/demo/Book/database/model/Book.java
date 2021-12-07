@@ -20,10 +20,23 @@ public class Book {
            )
     private Long id;
 
-    @Column
-    private String title, author, genre, image;
-    @Column
-    private Double price, rating;
+    @Column(name="title")
+    private String title;
+
+    @Column(name="author")
+    private String author;
+
+    @Column(name="genre")
+    private String genre;
+
+    @Column(name="image")
+    private String image;
+
+    @Column(name="price")
+    private Double price;
+
+    @Column(name="rating")
+    private Double rating;
 
     public Book() {
     }

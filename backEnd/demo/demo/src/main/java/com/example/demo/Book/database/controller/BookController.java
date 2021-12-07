@@ -23,8 +23,14 @@ public class BookController {
         return bookService.listBooks();
     }
 
-    @PostMapping("/add")
-    public Book createBook(@RequestBody Book newBook) {
-        return bookService.createBook(newBook);
-    }
+    @GetMapping("/listAll/{genre}")
+    public Iterable<Book> listBookByGenre(@PathVariable("genre") String genre) { return bookService.listBookByGenre(genre); }
+
+    @GetMapping("/listAll/{rating}")
+    public Iterable<Book> listBookGtRating(@PathVariable("rating") Double rating) { return bookService.listBookGtRating(rating); }
+//    @PostMapping("/add")
+//    public Book createBook(@RequestBody Book newBook) {
+//        return bookService.createBook(newBook);
+//    }
+
 }
