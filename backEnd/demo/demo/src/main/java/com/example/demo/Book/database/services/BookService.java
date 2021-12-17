@@ -8,5 +8,6 @@ public interface BookService {
     HttpStatus deleteBook(Long id);
     Iterable<Book> listBookByGenre(String genre);
     Iterable<Book> listBookGtRating(Double rating);
-
+    Iterable<Book> listAllBestSellersInGenre(String genre);
+    Iterable<Book> listAllBestSellers();
 }

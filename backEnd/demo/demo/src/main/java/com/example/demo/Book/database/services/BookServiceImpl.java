@@ -70,4 +70,27 @@ public class BookServiceImpl implements BookService {
         return query.getResultList();
     }
 
+    @Override
+    //Get all books greater than a rating of 4 of a specific genre
+    public List<Book> listAllBestSellersInGenre(String genre) {
+
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Book> cq = cb.createQuery(Book.class);
+        Root<Book> book = cq.from(Book.class);
+        Predicate genrePredicate = cb.equal(book.get("genre"), genre);
+        Predicate ratingPredicate = cb.greaterThan(book.get("rating"), 4.0);
+        cq.select(book);
+        cq.where(cb.and(genrePredicate, ratingPredicate));
+
+        TypedQuery<Book> query = em.createQuery(cq);
+
+        return query.getResultList();
+
+    }
+
+    @Override
+    //Get all books greater than a rating of 4
+    public List<Book> listAllBestSellers() {
+        return listBookGtRating(4.0);
+    }
 }
