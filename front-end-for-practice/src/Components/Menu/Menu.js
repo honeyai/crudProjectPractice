@@ -39,7 +39,7 @@ const Menu = ({ isOpen }) => {
           label: "See all books",
         },
         {
-          href: "",
+          href: "/b/bestsellers",
           label: "Bestsellers",
           icon: "",
         },
@@ -50,11 +50,11 @@ const Menu = ({ isOpen }) => {
       ]
     },
     {
-      href: "",
+      href: "/b/fiction",
       label: "Fiction",
     },
     {
-      href: "",
+      href: "/b/nonfiction",
       label: "Nonfiction"
     }
   ];
@@ -66,7 +66,7 @@ const Menu = ({ isOpen }) => {
       icon: <LocationOnIcon />,
     },
     {
-      href: "",
+      href: "/b/bestsellers",
       label: "Bestsellers",
       icon: <StarsIcon />,
     },

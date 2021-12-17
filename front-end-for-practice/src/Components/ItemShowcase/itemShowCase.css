@@ -1,0 +1,18 @@
+.itemShowcase__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: red solid;
+}
+
+.itemShowcase__innerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemShowcase__infoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}

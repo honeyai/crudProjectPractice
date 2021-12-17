@@ -6,7 +6,6 @@ import "./carousel.css";
 
 const Carousel = ({ books, title }) => {
   let [index, setIndex] = useState(0);
-  console.log("books", books)
   const importImages = (r) => r.keys().map(r);
   let images = importImages(require.context(`../Assets/Images`, false, /\.(png|jpe?g|svg)$/i));
 
@@ -35,7 +34,6 @@ const Carousel = ({ books, title }) => {
           .replace(/\.[^/.]+$/, "")
           .replace(/\.[^/.]+$/, "") === imageName
     );
-    console.log(imageName)
     return file ? file : null;
   };
 
